@@ -9,15 +9,15 @@ export default component$(() => {
       style={{ backgroundImage: `url(${ImgSkeleton})` }}
     >
       <div
-        class="flip-container m-auto h-full max-w-[598px]"
+        class="flip-container m-auto h-full max-w-full md:max-w-[598px]"
         style={{ perspective: "1000px" }}
       >
         <div class="flipper cursor-pointer">
-          <div class="front">
-            <img src={ImgSkeleton} width={598} height={588} />
+          <div class="front max-w-full p-4">
+            <img src={ImgSkeleton} class="max-w-full" />
           </div>
-          <div class="back">
-            <img src={ImgSkeleton} width={598} height={588} />
+          <div class="back max-w-full p-4">
+            <img src={ImgSkeleton} class="max-w-full" />
           </div>
         </div>
       </div>
