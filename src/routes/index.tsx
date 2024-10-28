@@ -7,9 +7,9 @@ export default component$(() => {
     <div class="flex min-h-svh bg-black">
       <img
         src={ImgSkeleton}
-        width={223}
-        height={223}
-        class="m-auto h-full max-w-[223px]"
+        width={598}
+        height={588}
+        class="m-auto h-full max-w-[598px]"
       />
     </div>
   );
