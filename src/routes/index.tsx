@@ -4,12 +4,12 @@ import ImgSkeleton from "../components/skeleton.jpg";
 
 export default component$(() => {
   return (
-    <div class="flex min-h-svh">
+    <div class="flex min-h-svh bg-black">
       <img
         src={ImgSkeleton}
-        width={600}
-        height={600}
-        class="m-auto h-full max-w-[600px]"
+        width={223}
+        height={223}
+        class="m-auto h-full max-w-[223px]"
       />
     </div>
   );
