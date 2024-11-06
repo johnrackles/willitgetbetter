@@ -1,5 +1,6 @@
 import { component$, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { isServer } from "@builder.io/qwik/build";
 import type { ConfettiOptions } from "@tsparticles/confetti";
 import { confetti } from "@tsparticles/confetti";
 import ImgSkeleton from "../components/skeleton.jpg";
@@ -47,29 +48,30 @@ const fireConfetti = () => {
 };
 
 export default component$(() => {
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async () => {
-    const end = Date.now() + 15 * 1000;
+    const end = Date.now() + 5 * 1000;
+    if (!isServer) {
+      (function frame() {
+        confetti({
+          particleCount: 2,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+        });
 
-    (function frame() {
-      confetti({
-        particleCount: 2,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-      });
+        confetti({
+          particleCount: 2,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+        });
 
-      confetti({
-        particleCount: 2,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-      });
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    })();
-    fireConfetti();
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
   });
 
   return (
@@ -86,10 +88,20 @@ export default component$(() => {
       >
         <div class="flipper cursor-pointer">
           <div class="front max-w-full p-4">
-            <img src={ImgSkeleton} class="max-w-full" />
+            <img
+              src={ImgSkeleton}
+              class="max-w-full"
+              width={598}
+              height={588}
+            />
           </div>
           <div class="back max-w-full p-4">
-            <img src={ImgSkeleton} class="max-w-full" />
+            <img
+              src={ImgSkeleton}
+              class="max-w-full"
+              width={598}
+              height={588}
+            />
           </div>
         </div>
       </div>

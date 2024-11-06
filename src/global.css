@@ -11,9 +11,11 @@
   perspective: 1000px;
 }
 /* flip the pane when hovered */
-.flip-container:hover .flipper,
-.flip-container.hover .flipper {
-  transform: rotateY(180deg);
+@media (hover: hover) and (pointer: fine) {
+  .flip-container:hover .flipper,
+  .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
 }
 
 .flip-container,
