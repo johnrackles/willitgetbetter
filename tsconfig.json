@@ -16,10 +16,8 @@
     "isolatedModules": true,
     "outDir": "tmp",
     "noEmit": true,
-    "paths": {
-      "~/*": ["./src/*"]
-    }
+    "paths": { "~/*": ["./src/*"] }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src", "./*.d.ts", "./*.config.ts"]
+  "include": ["src", "./*.d.ts", "./*.config.ts", "./postcss.config.cjs"]
 }
